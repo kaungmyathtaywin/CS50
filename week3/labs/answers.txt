@@ -1,0 +1,11 @@
+sort1 uses: Bubble sort
+
+How do you know?: When tested with sorted data, this algorithm is better than sort3 while it took the longest time when testest with reversed data. Therefore, we can see this is bubble sort because when the data is reversed, it takes the longest time.
+
+sort2 uses: Merge sort
+
+How do you know?: This one clearly outperforms the other two sorting algorithms with shorter time in all three test cases.
+
+sort3 uses: Selection sort
+
+How do you know?: This is selection sort because it takes the same amount of time when tested with random and sorted data sets which is the case for selection sort because selection sort still needs to run the same time when the data is sorted.
