@@ -23,7 +23,6 @@ pair;
 string candidates[MAX];
 pair pairs[MAX * (MAX - 1) / 2];
 
-
 int pair_count;
 int candidate_count;
 
