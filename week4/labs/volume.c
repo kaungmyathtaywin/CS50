@@ -47,6 +47,13 @@ int main(int argc, char *argv[])
     {
         // Allocate memory for the copied byte
         int16_t *copy = malloc(sizeof(buffer));
+        
+        // If no memory left, exit the program
+        if (copy == NULL)
+        {
+            printf("No memory left!");
+            return 1;
+        }
 
         // Store the multiplied value into copy
         *copy = factor * buffer;
