@@ -34,18 +34,9 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
 
             // Check if the values are greater than 255
             // if so, cap them at 255
-            if (sepiaRed > 255)
-            {
-                sepiaRed = 255;
-            }
-            if (sepiaGreen > 255)
-            {
-                sepiaGreen = 255;
-            }
-            if (sepiaBlue > 255)
-            {
-                sepiaBlue = 255;
-            } 
+            if (sepiaRed > 255) sepiaRed = 255;
+            if (sepiaGreen > 255) sepiaGreen = 255;
+            if (sepiaBlue > 255) sepiaBlue = 255;
 
             image[i][j].rgbtRed = sepiaRed;
             image[i][j].rgbtGreen = sepiaGreen;
