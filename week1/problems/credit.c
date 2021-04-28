@@ -15,7 +15,6 @@ int main(void)
     int second_sequence = regular_addition(card_number);
     int digits = get_number_of_digits(card_number);
 
-
     // Get first and second digits for validation
     int first_digit = card_number / (long) pow(10, digits - 1);
     int first_two_digits = card_number / (long) pow(10, digits - 2);
