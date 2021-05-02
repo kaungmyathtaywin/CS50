@@ -104,12 +104,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             // Start and end positions for height and width
             int hstart = i - 1, hend = i + 1, wstart = j - 1, wend = j + 1;
 
-            // Check if start and end points go out of index
-            if (hstart < 0) hstart = 0;
-            if (hend > height - 1) hend = hend - 1;
-            if (wstart < 0) wstart = 0;
-            if (wend > width - 1) wend = wend - 1; 
-
+            
             float red = 0, green = 0, blue = 0;
             int count = 0;
 
@@ -118,11 +113,15 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             {
                 for (int l = wstart; l <= wend; l++)
                 {
-                    red += copy[k][l].rgbtRed;
-                    green += copy[k][l].rgbtGreen;
-                    blue += copy[k][l].rgbtBlue;
+                    // Check if start and end points go out of index
+                    if (!((k < 0 || k > height - 1) || (l < 0 || l > width - 1)))
+                    {
+                        red += copy[k][l].rgbtRed;
+                        green += copy[k][l].rgbtGreen;
+                        blue += copy[k][l].rgbtBlue;
 
-                    count++;
+                        count++;
+                    }
                 }
             }
 

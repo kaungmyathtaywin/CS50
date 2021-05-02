@@ -166,13 +166,11 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             green = (int) round(sqrt(pow(x_green, 2) + pow(y_green, 2)));
             blue = (int) round(sqrt(pow(x_blue, 2) + pow(y_blue, 2)));
 
-
             // If the combined value goes greater than 255, cap them at 255
             if (red > 255) red = 255;
             if (green > 255) green = 255;
             if (blue > 255) blue = 255;
             
-
             // Assign the calculated values
             image[i][j].rgbtRed = red;
             image[i][j].rgbtGreen = green;
