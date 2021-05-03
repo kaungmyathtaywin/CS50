@@ -19,12 +19,12 @@ int main(int argc, char *argv[])
     if (!input)
     {
         printf("Could not open file.\n");
+        return 1;
     }
 
     char filename[20];
     int count = 0;
-    bool new = true;
-    bool found = false;
+    bool new = true, found = false;
 
     // Pointer to be resued after creating file
     FILE *fpt = NULL;
