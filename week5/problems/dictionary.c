@@ -1,8 +1,10 @@
 // Implements a dictionary's functionality
-#include <stdbool.h>
-#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+#include <string.h>
+#include <strings.h>
+#include <ctype.h>
 
 #include "dictionary.h"
 
@@ -15,7 +17,10 @@ typedef struct node
 node;
 
 // Number of buckets in hash table
-const unsigned int N = 1;
+const unsigned int N = 10000;
+
+// Number of words in the dictionary
+unsigned int word_count = 0;
 
 // Hash table
 node *table[N];
@@ -23,15 +28,33 @@ node *table[N];
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
-    // TODO
+    // Bucket index in hash table
+    unsigned int bucket_index = hash(word);
+
+    // Traverse through the linked list
+    for (node *cursor = table[bucket_index]; cursor != NULL; cursor = cursor->next)
+    {
+        if (strcasecmp(cursor->word, word) == 0)
+        {
+            return true;
+        }
+    }
+
     return false;
 }
 
 // Hashes word to a number
 unsigned int hash(const char *word)
 {
-    // TODO
-    return 0;
+    // djb2 hash function by Daniel J. Berstein adapted for case insensitive
+    unsigned int hash = 5381;
+
+    for (const char *ptr = word; *ptr != '\0'; ptr++)
+    {
+        hash = ((hash << 5) + hash) + tolower(*ptr);
+    }
+
+    return hash % N;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
@@ -62,10 +85,14 @@ bool load(const char *dictionary)
         // Hash the word stored in buffer
         unsigned int hash_index = hash(buffer);
 
+        // Add newly added node to linked list
         n->next = table[hash_index];
         table[hash_index] = n;
+
+        // Update word count for size function
+        word_count++;
     }
-    
+
     fclose(fpt);
 
     return true;
@@ -74,13 +101,25 @@ bool load(const char *dictionary)
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
 {
-    // TODO
-    return 0;
+    return word_count;
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
-    // TODO
-    return false;
+    // Loop through buckets in hash table
+    for (int i = 0; i < N; i++)
+    {
+        node *cursor = table[i];
+
+        // Free each linked list
+        while (cursor != NULL)
+        {
+            node *tmp = cursor->next;
+            free(cursor);
+            cursor = tmp;
+        }
+    }
+
+    return true;
 }
