@@ -9,7 +9,7 @@ def main():
 
     if check(card_number):
         
-        # Check visa card 
+        # Check visa 
         if len(card_number) in [13, 16] and card_number[0] == "4":
             print("VISA")
         
@@ -17,7 +17,7 @@ def main():
         elif len(card_number) == 15 and card_number[0:2] in amex:
             print("AMEX")
         
-        # Check master card
+        # Check master 
         elif len(card_number) == 16 and card_number[0:2] in master:
             print("MASTERCARD")
 
