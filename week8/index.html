@@ -8,11 +8,26 @@
 
         <script>
 
-            // TODO: Add code to check answers to questions
-            let wrong_buttons = document.querySelectorAll(".wrong")
-            
-            
+            // Add code to check answers to questions
+            document.addEventListener("DOMContentLoaded", function() {
+                let answer = document.getElementById("answer");
 
+                // Add event listeners for wrong buttons
+                document.querySelectorAll(".wrong").forEach(button => {
+                    button.addEventListener("click", function() {
+                        this.style.backgroundColor = "#ff5858";
+
+                        answer.innerHTML = "Incorrect";
+                    })
+                });
+
+                // Add event listen for right button
+                document.querySelector(".correct").addEventListener("click", function() {
+                    this.style.backgroundColor = "#61e95a";
+
+                    answer.innerHTML = "Correct!";
+                });
+            });
         </script>
 
     </head>
@@ -29,8 +44,9 @@
                 <hr>
                 
 
-                <!-- TODO: Add multiple choice question here -->
+                <!-- Add multiple choice question here -->
                 <h3>What is the approximate ratio of people to sheep in New Zealand?</h3>
+                <p id="answer"></p>
                 <button class="wrong">6 people per 1 sheep</button>
                 <button class="correct">3 people per 1 sheep</button>
                 <button class="wrong">1 person per 1 sheep</button>
