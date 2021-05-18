@@ -7,27 +7,56 @@
         <title>Trivia!</title>
 
         <script>
-
             // Add code to check answers to questions
             document.addEventListener("DOMContentLoaded", function() {
-                let answer = document.getElementById("answer");
+                let answerOne = document.getElementById("answerOne");
+                let buttons = document.querySelectorAll(".option");
 
                 // Add event listeners for wrong buttons
                 document.querySelectorAll(".wrong").forEach(button => {
                     button.addEventListener("click", function() {
                         this.style.backgroundColor = "#ff5858";
-
-                        answer.innerHTML = "Incorrect";
+                        answerOne.innerHTML = "Incorrect";
+                        buttons.forEach(button => button.disabled = true);
                     })
                 });
 
                 // Add event listen for right button
                 document.querySelector(".correct").addEventListener("click", function() {
                     this.style.backgroundColor = "#61e95a";
-
-                    answer.innerHTML = "Correct!";
+                    answerOne.innerHTML = "Correct!";
+                    buttons.forEach(button => button.disabled = true);
                 });
+
+                let answerTwo = document.getElementById("answerTwo");
+                let response = document.querySelector(".response");
+                
+                document.querySelector(".check").addEventListener("click", function() {
+                    let responseValue = response.value;
+
+                    if (responseValue.toLowerCase() == "switzerland") {
+                        answerTwo.innerHTML = "Correct!";
+                        response.style.backgroundColor = "#61e95a";
+                    } else {
+                        answerTwo.innerHTML = "Incorrect";
+                        response.style.backgroundColor = "#ff5858";
+                    }
+                })
+
+                // Retry button to clean every styling added
+                document.querySelector(".retry").addEventListener("click", function() {
+                    buttons.forEach(button => {
+                        button.disabled = false;
+                        button.style.backgroundColor = "#d9edff";
+                    });
+
+                    answerOne.innerHTML = "";
+                    answerTwo.innerHTML = "";
+                    response.value = "";
+                    response.style.backgroundColor = "white";
+                })
             });
+
         </script>
 
     </head>
@@ -43,24 +72,31 @@
                 <h2>Part 1: Multiple Choice </h2>
                 <hr>
                 
-
                 <!-- Add multiple choice question here -->
                 <h3>What is the approximate ratio of people to sheep in New Zealand?</h3>
-                <p id="answer"></p>
-                <button class="wrong">6 people per 1 sheep</button>
-                <button class="correct">3 people per 1 sheep</button>
-                <button class="wrong">1 person per 1 sheep</button>
-                <button class="wrong">1 person per 6 sheep</button>
+                <p id="answerOne"></p>
+                <button class="wrong option">6 people per 1 sheep</button>
+                <button class="correct option">3 people per 1 sheep</button>
+                <button class="wrong option">1 person per 1 sheep</button>
+                <button class="wrong option">1 person per 6 sheep</button>
+
+                
             </div>
 
             <div class="section">
                 <h2>Part 2: Free Response</h2>
                 <hr>
 
-                <!-- TODO: Add free response question here -->
+                <!-- Add free response question here -->
+                <h3>In which country is it illegal to own only one guinea pig, as a lone guinea pig might get lonley?</h3>
+                <p id="answerTwo"></p>
+                <input class="response" type="text">
+                <button class="check">Check Answer</button>
+
+                <button class="retry">Retry</button>
 
             </div>
-
+            
         </div>
     </body>
 </html>
