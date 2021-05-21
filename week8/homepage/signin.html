@@ -5,11 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link href="styles.css" rel="stylesheet">
         <title>Gallery</title>
     </head>
     <body>
 
         <div class="container-fluid p-0">
+
             <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="#">Website</a>
@@ -25,6 +27,37 @@
                     </div>
                 </div>
             </nav>
+
+            <div class="row justify-content-center mt-3">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label" for="firstName">First Name</label>
+                            <input class="form-control" type="text" name="firstname" id="firstName">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label" for="firstName">Last Name</label>
+                            <input class="form-control" type="text" name="lastname" id="lastName">
+                        </div> 
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label class="form-label" for="firstName">Username</label>
+                            <input class="form-control" type="text" name="username" id="username">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label class="form-label" for="firstName">Password</label>
+                            <input class="form-control" type="text" name="password" id="password">
+                        </div> 
+                    </div>
+                </div>
+                <div class="col-md-4"></div>
+                
+            </div>
+
         </div>
 
     </body>
