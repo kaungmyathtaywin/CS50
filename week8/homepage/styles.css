@@ -13,6 +13,10 @@ img {
     height: 500px;
 }
 
+/* main {
+    height: 50vh;
+} */
+
 .jumbotron {
     background-color: #477bff;
     color: #fff;
@@ -20,4 +24,12 @@ img {
     padding: 2rem 1rem;
     text-align: center;
     min-height: 50vh;
+}
+
+.gallery {
+    margin-top: 55px;
+}
+
+.signin {
+    width: 30%;
 }
