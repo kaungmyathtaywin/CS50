@@ -38,3 +38,12 @@ main {
 .card {
     border-radius: 8px;
 }
+
+.google {
+    width: 100%;
+    height: auto;
+}
+
+.search-page {
+    overflow: hidden;
+}

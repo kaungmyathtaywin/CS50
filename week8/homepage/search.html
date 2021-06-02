@@ -8,7 +8,7 @@
     <link href="styles.css" rel="stylesheet">
     <title>Search</title>
 </head>
-<body>
+<body class="search-page">
 
     <div class="container-fluid p-0">
         <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
@@ -29,9 +29,15 @@
         </nav>
 
         <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6"></div>
-            <div class="col-md-3"></div>
+            <div class="col-md-4 p-0"></div>
+            <div class="col-md-4 p-0">
+                <img src="https://thenextscoop.com/wp-content/uploads/2018/03/5-Mind-Blowing-Facts-from-the-Google-Logo-Design-History-1280x720.png" alt="Google Picture" class="google mt-5">
+                <form class="d-flex mt-5" action="https://www.google.com/search" method="GET">
+                    <input class="form-control me-3" type="search" placeholder="Search on Google!" name="q">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+            <div class="col-md-4 p-0"></div>
         </div>
     </div>
     
